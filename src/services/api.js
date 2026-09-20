@@ -2,13 +2,12 @@ import axios from "axios";
 
 /**
  * Central Axios instance.
- * - baseURL points directly at the Spring Boot backend.
+ * - baseURL comes from the Vite environment variable.
  * - withCredentials: true tells the browser to send the HttpOnly JWT cookie
- *   with every request (cookies are NOT readable by JS, but the browser
- *   attaches them automatically).
+ *   with every request.
  */
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,
   withCredentials: true,
 });
 
