@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gray-900: #111111;
+  --gray-700: #3f3f3f;
+  --gray-500: #737373;
+  --gray-200: #e5e5e5;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ---------- centered card ---------- */
+.card {
+  background: var(--white);
+  width: 100%;
+  max-width: 420px;
+  padding: 2.25rem 2rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  animation: fade-in 0.25s ease;
+}
+
+.card h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: var(--black);
+  letter-spacing: -0.5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ---------- form ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.6rem;
+  color: var(--black);
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+input::placeholder {
+  color: var(--gray-500);
+}
+
+input:focus {
+  border-color: var(--black);
+  background: #fafafa;
+}
+
+button {
+  margin-top: 1.25rem;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+  background: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  color: var(--black);
+  background: var(--white);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- messages ---------- */
+.field-error {
+  color: var(--black);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+.field-error::before {
+  content: "— ";
+}
+
+.alert {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.alert.success {
+  background: var(--white);
+  color: var(--black);
+}
+
+.alert.error {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ---------- links ---------- */
+.switch-link {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+}
+
+.switch-link a {
+  color: var(--black);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.switch-link a:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ---------- loading ---------- */
+.loading {
+  color: var(--gray-500);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
