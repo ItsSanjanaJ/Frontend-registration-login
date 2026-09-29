@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../services/api";
 
 /**
@@ -13,10 +13,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation();
-
-  // Optional: land back on the page the user originally wanted.
-  const from = location.state?.from?.pathname || "/home";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +45,7 @@ export default function Login() {
         password: form.password,
       });
       setServerMessage(res.data.message || "Login successful");
-      navigate(from, { replace: true });
+      navigate("/home", { replace: true });
     } catch (error) {
       const msg =
         error?.response?.data?.message || "Login failed. Please try again.";
